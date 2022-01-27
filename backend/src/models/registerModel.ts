@@ -7,11 +7,12 @@ interface IProduct {
   category: string;
   site: string;
 }
+
 const registerProductModel = async (product: IProduct): Promise<object> => {
   const conn = await connection();
   const { insertedId } = await conn
     .collection('products')
-    .insertOne({ product });
+    .insertOne({ ...product });
   return {
     id: insertedId,
   };
