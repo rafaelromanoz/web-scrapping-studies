@@ -1,10 +1,20 @@
 import connection from './connection';
-
-const registerProductModel = async product => {
+interface IProduct {
+  name: string;
+  price: number;
+  description: string;
+  picture: string;
+  category: string;
+  site: string;
+}
+const registerProductModel = async (product: IProduct): Promise<object> => {
   const conn = await connection();
-  await conn.
+  const { insertedId } = await conn
+    .collection('products')
+    .insertOne({ product });
+  return {
+    id: insertedId,
+  };
 };
 
-export {
-  registerProductModel,
-}
+export default registerProductModel;
