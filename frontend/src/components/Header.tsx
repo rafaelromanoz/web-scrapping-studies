@@ -1,33 +1,19 @@
-import React, { ReactElement, useContext } from 'react';
-import { Dropdown } from 'react-bootstrap';
+import React, {
+  ReactElement, useContext,
+} from 'react';
+import { Form } from 'react-bootstrap';
 import ProductContext from '../context/ProductsContext';
 
 export default function Header(): ReactElement {
-  const { setCategory, setInput, setSite } = useContext(ProductContext);
+  const { setCategory, setSite, setInput }: any = useContext(ProductContext);
   return (
     <div>
-      <Dropdown>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
-          Web
-          {console.log(setCategory, setInput, setSite)}
-        </Dropdown.Toggle>
-        <Dropdown.Menu>
-          <Dropdown.Item>Todas</Dropdown.Item>
-          <Dropdown.Item>MercadoLivre</Dropdown.Item>
-          <Dropdown.Item>Buscapé</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
-      <Dropdown>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
-          Categorias
-        </Dropdown.Toggle>
-
-        <Dropdown.Menu>
-          <Dropdown.Item>Geladeira</Dropdown.Item>
-          <Dropdown.Item>Tv</Dropdown.Item>
-          <Dropdown.Item>Celu</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
+      <Form.Select onChange={(event) => console.log(event)} aria-label="Default select example">
+        <option>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </Form.Select>
     </div>
   );
 }

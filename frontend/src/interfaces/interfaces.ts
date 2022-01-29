@@ -1,10 +1,10 @@
 import { Dispatch, ReactNode, SetStateAction } from 'react';
 
-interface IChildren {
+type IChildren = {
   children: ReactNode;
 }
 
-interface IValue {
+interface IValue{
   setCategory: Dispatch<SetStateAction<string>>;
   setInput: Dispatch<SetStateAction<string>>;
   setSite: Dispatch<SetStateAction<string>>;
