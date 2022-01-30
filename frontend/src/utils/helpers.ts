@@ -14,12 +14,16 @@ const getUrlByCategory = (category: string): string => {
   return url;
 };
 
-const filterProductsAttributes = (array: Array<any>)
+const filterProductsAttributes = (
+  array: Array<any>,
+  category: string,
+)
   : Array<object> => array
   .map(
     ({
       title, thumbnail, price, permalink,
     }) => ({
+      category,
       site: 'MercadoLivre',
       title,
       thumbnail,

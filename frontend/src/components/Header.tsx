@@ -19,9 +19,10 @@ export default function Header(): ReactElement {
   }: any = useContext(ProductContext);
   const styleDiv = {
     display: 'flex',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     marginTop: '4px',
     marginBottom: '10px',
+    marginLeft: '10px',
   };
   return (
     <div

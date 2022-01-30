@@ -6,12 +6,13 @@ const urlBaseSearchName = 'https://api.mercadolibre.com/sites/MLB/search?q=';
 const searchByNameProduct = async (query: string): Promise<any> => {
   const { data: { results } } = await axios
     .get(`${urlBaseSearchName}${query}&limit=10`);
-  return filterProductsAttributes(results);
+  return filterProductsAttributes(results, query);
 };
 
 const searchByCategory = async (category: string): Promise<any> => {
   const { data: { results } } = await axios.get(getUrlByCategory(category));
-  return filterProductsAttributes(results);
+  console.log(results);
+  return filterProductsAttributes(results, category);
 };
 
 export {

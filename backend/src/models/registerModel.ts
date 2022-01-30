@@ -1,21 +1,15 @@
 import connection from './connection';
 interface IProduct {
-  name: string;
-  price: number;
-  description: string;
-  picture: string;
-  category: string;
   site: string;
+  title: string;
+  thumbnail: string;
+  price: string;
+  permalink: string;
 }
 
-const registerProductModel = async (product: IProduct): Promise<object> => {
+const registerProductModel = async (product: IProduct): Promise<void> => {
   const conn = await connection();
-  const { insertedId } = await conn
-    .collection('products')
-    .insertOne({ ...product });
-  return {
-    id: insertedId,
-  };
+  await conn.collection('products').insertOne({ product });
 };
 
 export default registerProductModel;

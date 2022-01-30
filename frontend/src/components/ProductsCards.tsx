@@ -4,13 +4,20 @@ import ProductContext from '../context/ProductsContext';
 
 export default function ProductCards(): ReactElement {
   const { dataMercadoLivre } = useContext(ProductContext);
+  const styleCard = {
+    display: 'flex',
+    flexFlow: 'column nowrap',
+    alignContent: 'flex-start',
+    justifyContent: 'flex-start',
+    alignItens: 'flex-start',
+  };
   if (!dataMercadoLivre) return <p />;
   return (
-    <div style={{ display: 'flex' }}>
+    <div style={styleCard}>
       {dataMercadoLivre.map(({
         title, thumbnail, price, permalink,
       }: any, _e: any, index: Key | null | undefined) => (
-        <Card key={index} style={{ width: '18rem' }}>
+        <Card key={index} style={{ width: '400px' }}>
           <Card.Img variant="top" src={thumbnail} />
           <Card.Body>
             <Card.Title>{title}</Card.Title>
