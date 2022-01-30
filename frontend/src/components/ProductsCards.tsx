@@ -15,9 +15,9 @@ export default function ProductCards(): ReactElement {
   return (
     <div style={styleCard}>
       {dataMercadoLivre.map(({
-        title, thumbnail, price, permalink,
-      }: any, _e: any, index: Key | null | undefined) => (
-        <Card key={index} style={{ width: '400px' }}>
+        title, thumbnail, price, permalink, id,
+      }: any) => (
+        <Card key={id} style={{ width: '400px' }}>
           <Card.Img variant="top" src={thumbnail} />
           <Card.Body>
             <Card.Title>{title}</Card.Title>

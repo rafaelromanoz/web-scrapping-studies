@@ -21,9 +21,10 @@ const filterProductsAttributes = (
   : Array<object> => array
   .map(
     ({
-      title, thumbnail, price, permalink,
+      title, thumbnail, price, permalink, id,
     }) => ({
       category,
+      id,
       site: 'MercadoLivre',
       title,
       thumbnail,

@@ -16,6 +16,7 @@ export default function Header(): ReactElement {
     setDataMercadoLivre,
     category,
     input,
+    site,
   }: any = useContext(ProductContext);
   const styleDiv = {
     display: 'flex',
@@ -67,6 +68,7 @@ export default function Header(): ReactElement {
             input,
             setInput,
             setCategory,
+            site,
           )
         }
       >

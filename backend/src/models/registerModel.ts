@@ -1,4 +1,5 @@
 import connection from './connection';
+import { ParsedQs } from 'qs';
 interface IProduct {
   site: string;
   title: string;
@@ -12,4 +13,21 @@ const registerProductModel = async (product: IProduct): Promise<void> => {
   await conn.collection('products').insertOne({ product });
 };
 
-export default registerProductModel;
+const getProductsByCategoryModel = async (
+  category: ParsedQs | string | undefined | ParsedQs[] | string[],
+) => {
+  const conn = await connection();
+  const products = await conn
+    .collection('products')
+    .find({
+      product: {
+        $elemMatch: {
+          category,
+        },
+      },
+    })
+    .toArray();
+  return products;
+};
+
+export { registerProductModel, getProductsByCategoryModel };

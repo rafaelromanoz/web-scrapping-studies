@@ -1,8 +1,12 @@
 import express from 'express';
-import registerProductController from '../controllers/registerController';
+import {
+  getProductByCategoryController,
+  registerProductController,
+} from '../controllers/registerController';
 
 const registerRouter = express.Router();
 
 registerRouter.post('/', registerProductController);
+registerRouter.get('/', getProductByCategoryController);
 
 export default registerRouter;
