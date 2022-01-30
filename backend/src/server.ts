@@ -13,7 +13,9 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/register', registerRouter);
-
+app.get('/register', (req, res) => {
+  return res.status(400).json({message: 'deu certo'});
+})
 app.use(errorHandler);
 
 app.listen(PORT, () => {

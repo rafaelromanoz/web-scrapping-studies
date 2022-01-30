@@ -5,6 +5,7 @@ import {
   Button,
   Dropdown, DropdownButton, FormControl, InputGroup,
 } from 'react-bootstrap';
+
 import ProductContext from '../context/ProductsContext';
 import { onClickSearch } from '../utils/functions';
 
@@ -18,6 +19,7 @@ export default function Header(): ReactElement {
     input,
     site,
   }: any = useContext(ProductContext);
+
   const styleDiv = {
     display: 'flex',
     justifyContent: 'flex-start',
@@ -39,7 +41,6 @@ export default function Header(): ReactElement {
         <Dropdown.Item eventKey="mercadolivre">MercadoLivre</Dropdown.Item>
         <Dropdown.Item eventKey="buscape">Buscapé</Dropdown.Item>
       </DropdownButton>
-
       <DropdownButton
         title="Categorias"
         id="dropdown-menu-align-right"
