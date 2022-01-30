@@ -18,29 +18,27 @@ const onClickSearch = async (
   let productForBase;
   if (verifyInput(input)) {
     const { data } = await api.get(`/register/?category=${input}`);
-    if (data.length !== 0) {
+    if (data.length === 0) {
       setstate(await searchByNameProduct(input));
       productForBase = await searchByNameProduct(input);
+      await api.post('/register', productForBase);
       setInput('');
+    } else {
+      setstate(data[0].product);
+      await api.post('register', { site, input });
     }
-    productForBase = {
-      site,
-      category: input,
-    };
   } if (category !== '') {
     const { data } = await api.get(`/register/?category=${category}`);
-    console.log('🚀 ~ file: functions.ts ~ line 32 ~ data', data);
     if (data.length === 0) {
       setstate(await searchByCategory(category));
       productForBase = await searchByCategory(category);
+      await api.post('/register', productForBase);
       setCategory('');
+    } else {
+      setstate(data[0].product);
+      await api.post('register', { site, category });
     }
-    productForBase = {
-      site,
-      category,
-    };
   }
-  await api.post('/register', productForBase);
 };
 
 export {
