@@ -1,19 +1,17 @@
 import axios from 'axios';
-import { getUrlByCategory } from './helpers';
+import { filterProductsAttributes, getUrlByCategory } from './helpers';
 
 const urlBaseSearchName = 'https://api.mercadolibre.com/sites/MLB/search?q=';
 
-const searchByNameProduct = async (query: string): Promise<[]> => {
+const searchByNameProduct = async (query: string): Promise<any> => {
   const { data: { results } } = await axios
     .get(`${urlBaseSearchName}${query}&limit=10`);
-  console.log(results);
-  return results;
+  return filterProductsAttributes(results);
 };
 
-const searchByCategory = async (category: string): Promise<[]> => {
+const searchByCategory = async (category: string): Promise<any> => {
   const { data: { results } } = await axios.get(getUrlByCategory(category));
-  console.log(results);
-  return results;
+  return filterProductsAttributes(results);
 };
 
 export {

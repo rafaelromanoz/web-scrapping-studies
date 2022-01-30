@@ -3,9 +3,7 @@ import React, {
 } from 'react';
 import {
   Button,
-  Col,
-  Container,
-  Dropdown, DropdownButton, FormControl, InputGroup, Row,
+  Dropdown, DropdownButton, FormControl, InputGroup,
 } from 'react-bootstrap';
 import ProductContext from '../context/ProductsContext';
 import { onClickSearch } from '../utils/functions';
@@ -19,48 +17,60 @@ export default function Header(): ReactElement {
     category,
     input,
   }: any = useContext(ProductContext);
+  const styleDiv = {
+    display: 'flex',
+    justifyContent: 'center',
+    marginTop: '4px',
+    marginBottom: '10px',
+  };
   return (
-    <Container>
-      <Row>
-        <Col>
-          <DropdownButton
-            title="Web"
-            id="dropdown-menu-align-right"
-            onSelect={(event) => setSite(event)}
-          >
-            <Dropdown.Item eventKey="todas">Todas</Dropdown.Item>
-            <Dropdown.Item eventKey="mercadolivre">MercadoLivre</Dropdown.Item>
-            <Dropdown.Item eventKey="buscape">Buscapé</Dropdown.Item>
-          </DropdownButton>
-        </Col>
-        <Col>
-          <DropdownButton
-            title="Categorias"
-            id="dropdown-menu-align-right"
-            onSelect={(event) => setCategory(event)}
-          >
-            <Dropdown.Item eventKey="geladeira">Geladeira</Dropdown.Item>
-            <Dropdown.Item eventKey="tv">TV</Dropdown.Item>
-            <Dropdown.Item eventKey="celular">Celular</Dropdown.Item>
-          </DropdownButton>
-        </Col>
-        <Col xs={4}>
-          <InputGroup>
-            <InputGroup.Text>Nome Produto</InputGroup.Text>
-            <FormControl
-              placeholder="Digite o nome do produto"
-              onChange={({ target }) => setInput(target.value)}
-            />
-          </InputGroup>
-        </Col>
-        <Col>
-          <Button
-            onClick={() => onClickSearch(setDataMercadoLivre, category, input)}
-          >
-            Procurar
-          </Button>
-        </Col>
-      </Row>
-    </Container>
+    <div
+      style={styleDiv}
+    >
+      <DropdownButton
+        title="Web"
+        id="dropdown-menu-align-right"
+        onSelect={(event) => setSite(event)}
+        style={{ marginRight: '10px' }}
+      >
+        <Dropdown.Item eventKey="todas">Todas</Dropdown.Item>
+        <Dropdown.Item eventKey="mercadolivre">MercadoLivre</Dropdown.Item>
+        <Dropdown.Item eventKey="buscape">Buscapé</Dropdown.Item>
+      </DropdownButton>
+
+      <DropdownButton
+        title="Categorias"
+        id="dropdown-menu-align-right"
+        onSelect={(event) => setCategory(event)}
+        style={{ marginRight: '10px' }}
+      >
+        <Dropdown.Item eventKey="geladeira">Geladeira</Dropdown.Item>
+        <Dropdown.Item eventKey="tv">TV</Dropdown.Item>
+        <Dropdown.Item eventKey="celular">Celular</Dropdown.Item>
+      </DropdownButton>
+
+      <InputGroup style={{ width: '30rem' }}>
+        <InputGroup.Text>Pesquisa livre</InputGroup.Text>
+        <FormControl
+          placeholder="Digite o nome do produto"
+          onChange={({ target }) => setInput(target.value)}
+          style={{ marginRight: '10px' }}
+        />
+      </InputGroup>
+
+      <Button
+        onClick={
+          () => onClickSearch(
+            setDataMercadoLivre,
+            category,
+            input,
+            setInput,
+            setCategory,
+          )
+        }
+      >
+        Procurar
+      </Button>
+    </div>
   );
 }

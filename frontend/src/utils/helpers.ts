@@ -14,14 +14,24 @@ const getUrlByCategory = (category: string): string => {
   return url;
 };
 
-const filterProducts = (array) => array.map(({ title, thumbnail }) => ({
-  title,
-  thumbnail,
-}));
+const filterProductsAttributes = (array: Array<any>)
+  : Array<object> => array
+  .map(
+    ({
+      title, thumbnail, price, permalink,
+    }) => ({
+      site: 'MercadoLivre',
+      title,
+      thumbnail,
+      price,
+      permalink,
+    }),
+  );
 
 const verifyInput = (input: string): boolean => input !== '';
 
 export {
   getUrlByCategory,
   verifyInput,
+  filterProductsAttributes,
 };
