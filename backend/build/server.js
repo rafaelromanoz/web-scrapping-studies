@@ -15,7 +15,7 @@ app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 app.use('/register', registerRouter_1.default);
 app.get('/', (req, res) => {
-    return res.status(400).json({ message: 'deu certo' });
+    return res.status(400).json({ message: `${process.env.MONGO_DB_URL}` });
 });
 app.use(errorHandler_1.default);
 app.listen(PORT, () => {
