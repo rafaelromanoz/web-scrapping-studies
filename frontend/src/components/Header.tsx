@@ -76,7 +76,6 @@ export default function Header(): ReactElement {
         {' '}
         Procurar
       </Button>
-      <p>{ process.env.REACT_APP_API_URL }</p>
     </div>
   );
 }

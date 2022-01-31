@@ -13,9 +13,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/register', registerRouter);
-app.get('/', (req, res) => {
-  return res.status(400).json({ message: `${process.env.MONGO_DB_URL}` });
-});
+
 app.use(errorHandler);
 
 app.listen(PORT, () => {
