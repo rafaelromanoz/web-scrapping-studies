@@ -1,4 +1,4 @@
-import React, { ReactElement, useContext, Key } from 'react';
+import React, { ReactElement, useContext } from 'react';
 import { Card } from 'react-bootstrap';
 import ProductContext from '../context/ProductsContext';
 
