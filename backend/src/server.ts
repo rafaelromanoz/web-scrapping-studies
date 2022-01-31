@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use('/register', registerRouter);
 app.get('/', (req, res) => {
-  return res.status(400).json({ message: 'deu certo' });
+  return res.status(400).json({ message: `${process.env.MONGO_DB_URL}` });
 });
 app.use(errorHandler);
 
