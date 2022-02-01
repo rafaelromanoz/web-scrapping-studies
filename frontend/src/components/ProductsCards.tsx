@@ -15,12 +15,13 @@ export default function ProductCards(): ReactElement {
   return (
     <div style={styleCard}>
       {dataMercadoLivre.map(({
-        title, thumbnail, price, permalink, id,
+        title, thumbnail, price, permalink, id, site,
       }: any) => (
         <Card key={id} style={{ width: '400px' }}>
           <Card.Img variant="top" src={thumbnail} />
           <Card.Body>
             <Card.Title>{title}</Card.Title>
+            <Card.Text>{ site }</Card.Text>
             <Card.Text>{`Preço: ${price}`}</Card.Text>
             <a
               href={permalink}
