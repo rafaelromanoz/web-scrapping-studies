@@ -1,8 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import registerRouter from './routes/registerRouter';
+import registerRouterMercadoLivre from './routes/registerRouterMercadoLivre';
 import errorHandler from './middlewares/errorHandler';
+import registerRouterBuscape from './routes/registerRouterBuscape';
 
 dotenv.config();
 
@@ -13,7 +14,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/register', registerRouter);
+app.use('/register/mercadoLivre', registerRouterMercadoLivre);
+app.use('/register/buscape', registerRouterBuscape);
 
 app.use(errorHandler);
 

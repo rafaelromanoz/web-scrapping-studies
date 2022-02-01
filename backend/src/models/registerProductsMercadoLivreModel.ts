@@ -10,7 +10,7 @@ interface IProduct {
 
 const registerProductModel = async (product: IProduct): Promise<void> => {
   const conn = await connection();
-  await conn.collection('products').insertOne({ product });
+  await conn.collection('products_mercadolivre').insertOne({ product });
 };
 
 const getProductsByCategoryModel = async (
@@ -18,7 +18,7 @@ const getProductsByCategoryModel = async (
 ) => {
   const conn = await connection();
   const products = await conn
-    .collection('products')
+    .collection('products_mercadolivre')
     .find({
       product: {
         $elemMatch: {

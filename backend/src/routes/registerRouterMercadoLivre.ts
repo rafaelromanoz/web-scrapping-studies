@@ -2,7 +2,7 @@ import express from 'express';
 import {
   getProductByCategoryController,
   registerProductController,
-} from '../controllers/registerController';
+} from '../controllers/registerProductsMercadoLivreController';
 
 const registerRouter = express.Router();
 

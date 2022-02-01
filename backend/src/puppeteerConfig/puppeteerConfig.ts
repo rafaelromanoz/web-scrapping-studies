@@ -10,8 +10,7 @@ const scraping = async (category: string) => {
       .querySelectorAll('.Cell_Content__1630r')
       .values();
     const arrayNode = [...listTitleAndSrc];
-    const list = arrayNode.map(({ href, innerText }) => ({
-      category,
+    const list = arrayNode.map(({ href, innerText }: any): object => ({
       href,
       innerText,
     }));
