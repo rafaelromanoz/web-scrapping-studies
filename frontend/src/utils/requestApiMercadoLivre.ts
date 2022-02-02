@@ -11,7 +11,6 @@ const searchByNameProduct = async (query: string): Promise<any> => {
 
 const searchByCategory = async (category: string): Promise<any> => {
   const { data: { results } } = await axios.get(getUrlByCategory(category));
-  console.log(results);
   return filterProductsAttributes(results, category);
 };
 

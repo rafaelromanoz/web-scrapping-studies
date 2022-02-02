@@ -1,10 +1,7 @@
-import { verifyInput } from './helpers';
 import {
-  searchByCategory,
-  searchByNameProduct,
-} from './requestApiMercadoLivre';
-
-import api from '../api/configApi';
+  searchMercadoLivre,
+} from './helpers';
+import { requestScrapBuscape } from './requestScrapBuscape';
 
 const onClickSearch = async (
   setstate: any,
@@ -12,20 +9,15 @@ const onClickSearch = async (
   input: string,
   setInput: any,
   setCategory: any,
+  site: any,
 ):
   Promise<void> => {
-  let productForBase;
-  if (verifyInput(input)) {
-    setstate(await searchByNameProduct(input));
-    productForBase = await searchByNameProduct(input);
-    setInput('');
+  if (site === 'mercadolivre') {
+    searchMercadoLivre(setstate, category, input, setInput, setCategory, site);
   }
-  if (category !== '') {
-    setstate(await searchByCategory(category));
-    productForBase = await searchByCategory(category);
-    setCategory('');
+  if (site === 'buscape') {
+    await requestScrapBuscape(category, input, setstate);
   }
-  await api.post('/register', productForBase);
 };
 
 export {
