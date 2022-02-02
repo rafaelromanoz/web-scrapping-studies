@@ -10,13 +10,13 @@ const registerProductsBuscapeController = async (
   try {
     const {
       category,
+      input,
     }: ParsedQs | string | undefined | ParsedQs[] | string[] | undefined | any =
       req.query;
-    const products = await registerProductsBuscapeService(category);
+    const products = await registerProductsBuscapeService(category, input);
     return res.status(200).json(products);
   } catch (error) {
-    console.error(error);
-    next(error);
+    return next(error);
   }
 };
 

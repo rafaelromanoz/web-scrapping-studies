@@ -5,10 +5,16 @@ const requestScrapBuscape = async (
   input: any,
   setstate: any,
 ): Promise<void> => {
-  console.log('category');
-  const { data } = await api
-    .get(`/register/buscape?category=${category}`);
-  console.log(data);
+  if (input) {
+    const { data } = await api
+      .get(`/register/buscape?input=${input}`);
+    setstate(data);
+  }
+  if (category) {
+    const { data } = await api
+      .get(`/register/buscape?category=${category}`);
+    setstate(data);
+  }
 };
 
 export { requestScrapBuscape };

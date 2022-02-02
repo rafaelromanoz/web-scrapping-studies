@@ -1,3 +1,4 @@
+import axios from 'axios';
 import api from '../api/configApi';
 import {
   searchByCategory,
@@ -50,7 +51,7 @@ const searchMercadoLivre = async (
   site:any,
 ): Promise<void> => {
   let productForBase;
-  if (verifyInput(input)) {
+  if (input) {
     const { data } = await api.get(`/register/mercadoLivre?category=${input}`);
     if (data.length === 0) {
       setstate(await searchByNameProduct(input));
@@ -62,7 +63,7 @@ const searchMercadoLivre = async (
       await api.post('register/mercadoLivre', { site, input });
       setInput('');
     }
-  } if (category !== '') {
+  } if (category) {
     const { data } = await api
       .get(`/register/mercadoLivre?category=${category}`);
     if (data.length === 0) {

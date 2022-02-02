@@ -1,4 +1,6 @@
-import { searchMercadoLivre } from './helpers';
+import {
+  searchMercadoLivre,
+} from './helpers';
 import { requestScrapBuscape } from './requestScrapBuscape';
 
 const onClickSearch = async (

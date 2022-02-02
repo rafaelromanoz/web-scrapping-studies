@@ -22,7 +22,7 @@ export default function ProductCards(): ReactElement {
           <Card.Body>
             <Card.Title>{title}</Card.Title>
             <Card.Text>{ site }</Card.Text>
-            <Card.Text>{`Preço: ${price}`}</Card.Text>
+            <Card.Text>{`Preço: R$${price}`}</Card.Text>
             <a
               href={permalink}
               target="_blank"
