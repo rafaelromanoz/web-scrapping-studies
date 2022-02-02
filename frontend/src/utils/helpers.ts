@@ -1,4 +1,3 @@
-import axios from 'axios';
 import api from '../api/configApi';
 import {
   searchByCategory,
