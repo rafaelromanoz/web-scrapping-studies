@@ -17,7 +17,6 @@ app.use(express_1.default.json());
 app.use('/register/mercadoLivre', registerRouterMercadoLivre_1.default);
 app.use('/register/buscape', registerRouterBuscape_1.default);
 app.use(errorHandler_1.default);
-exports.default = app;
 app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}! 🏆`);
 });
