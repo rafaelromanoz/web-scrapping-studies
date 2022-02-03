@@ -1,4 +1,5 @@
 import {
+  getAllProductsFromMercadoLivreBuscape,
   searchMercadoLivre,
 } from './helpers';
 import { requestScrapBuscape } from './requestScrapBuscape';
@@ -17,6 +18,15 @@ const onClickSearch = async (
   }
   if (site === 'buscape') {
     await requestScrapBuscape(category, input, setstate);
+  }
+  if (site === 'todas') {
+    getAllProductsFromMercadoLivreBuscape(
+      setstate,
+      category,
+      setInput,
+      setCategory,
+      input,
+    );
   }
 };
 
