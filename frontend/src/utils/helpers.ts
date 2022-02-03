@@ -1,4 +1,3 @@
-import axios from 'axios';
 import api from '../api/configApi';
 import {
   searchByCategory,
@@ -39,6 +38,28 @@ const filterProductsAttributes = (
       permalink,
     }),
   );
+const getAllProductsFromMercadoLivreBuscape = async (
+  setstate: any,
+  category: string,
+  setInput: any,
+  setCategory: any,
+  input: string,
+): Promise<void> => {
+  if (category) {
+    const dataMerc = await searchByCategory(category);
+    const { data: dataBuscape } = await api
+      .get(`/register/buscape?category=${category}`);
+    setstate([...dataMerc, ...dataBuscape]);
+    setInput('');
+  }
+  if (input) {
+    const dataMerc = await searchByNameProduct(input);
+    const { data: dataBuscape } = await api
+      .get(`/register/buscape?input=${input}`);
+    setstate([...dataMerc, ...dataBuscape]);
+    setInput('');
+  }
+};
 
 const verifyInput = (input: string): boolean => input !== '';
 
@@ -84,4 +105,5 @@ export {
   verifyInput,
   filterProductsAttributes,
   searchMercadoLivre,
+  getAllProductsFromMercadoLivreBuscape,
 };
