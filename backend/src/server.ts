@@ -19,8 +19,6 @@ app.use('/register/buscape', registerRouterBuscape);
 
 app.use(errorHandler);
 
-export default app;
-
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}! 🏆`);
 });
