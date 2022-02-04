@@ -1,4 +1,5 @@
-import React, { ReactElement, useContext, Key } from 'react';
+/* eslint-disable react/no-array-index-key */
+import React, { ReactElement, useContext } from 'react';
 import { Card } from 'react-bootstrap';
 import ProductContext from '../context/ProductsContext';
 
@@ -15,13 +16,14 @@ export default function ProductCards(): ReactElement {
   return (
     <div style={styleCard}>
       {dataMercadoLivre.map(({
-        title, thumbnail, price, permalink, id,
-      }: any) => (
-        <Card key={id} style={{ width: '400px' }}>
+        title, thumbnail, price, permalink, site,
+      }: any, index: any) => (
+        <Card key={index} style={{ width: '400px' }}>
           <Card.Img variant="top" src={thumbnail} />
           <Card.Body>
             <Card.Title>{title}</Card.Title>
-            <Card.Text>{`Preço: ${price}`}</Card.Text>
+            <Card.Text>{ site }</Card.Text>
+            <Card.Text>{`Preço: R$${price}`}</Card.Text>
             <a
               href={permalink}
               target="_blank"

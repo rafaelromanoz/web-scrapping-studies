@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
-import { getProductByCategoryService } from '../services/registerService';
-import { registerProductModel } from '../models/registerModel';
+import { getProductByCategoryService } from '../services/registerProductsMercadoLivreService';
+import { registerProductModel } from '../models/registerProductsMercadoLivreModel';
 
 const registerProductController = async (
   req: Request,
