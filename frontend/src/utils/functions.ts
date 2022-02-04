@@ -14,13 +14,20 @@ const onClickSearch = async (
 ):
   Promise<void> => {
   if (site === 'mercadolivre') {
-    searchMercadoLivre(setstate, category, input, setInput, setCategory, site);
+    await searchMercadoLivre(
+      setstate,
+      category,
+      input,
+      setInput,
+      setCategory,
+      site,
+    );
   }
   if (site === 'buscape') {
     await requestScrapBuscape(category, input, setstate);
   }
   if (site === 'todas') {
-    getAllProductsFromMercadoLivreBuscape(
+    await getAllProductsFromMercadoLivreBuscape(
       setstate,
       category,
       setInput,
