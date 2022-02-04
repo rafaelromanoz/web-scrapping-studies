@@ -12,7 +12,7 @@ Para o Frontend foi utilizado React-TypeScript e BootStrap para realizar a estil
 
 ###Backend
 
-Para o Backend foi utilizado de Node TypeScript, Express para realizar o confeccionamento da API REST, Puppeteer para realizar o scraping no Buscapé, MongoDB para salvar os dados da pesquisa e o ESLint para padronização e melhor leitura do código.
+Para o Backend foi utilizado de Node TypeScript, Express para realizar o confeccionamento da API REST, Puppeteer para realizar o scraping no Buscapé, MongoDB para salvar os dados da pesquisa e o ESLint para padronização e melhor leitura do código, foi utilizada a arquitetura MSC (Models, Services, Controllers).
 
 # Rodar o Projeto
 
