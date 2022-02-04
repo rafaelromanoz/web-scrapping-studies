@@ -19,6 +19,7 @@ const scraping = (category, input) => __awaiter(void 0, void 0, void 0, function
         const url = `https://www.buscape.com.br/${category}`;
         const browser = yield puppeteer_1.default.launch({
             args: ['--no-sandbox', '--disable-setuid-sandbox'],
+            headless: true,
         });
         const page = yield browser.newPage();
         yield page.goto(url);

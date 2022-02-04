@@ -5,6 +5,7 @@ const scraping = async (category: string, input: string): Promise<any> => {
     const url = `https://www.buscape.com.br/${category}`;
     const browser = await puppeteer.launch({
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      headless: true,
     });
     const page = await browser.newPage();
     await page.goto(url);
