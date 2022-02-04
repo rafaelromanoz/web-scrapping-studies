@@ -33,7 +33,11 @@ const scraping = async (category: string, input: string): Promise<any> => {
   }
   if (input) {
     const url = `https://www.buscape.com.br/search?q=${input}`;
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+      headless: true,
+      ignoreHTTPSErrors: true,
+    });
     const page = await browser.newPage();
     await page.goto(url);
 

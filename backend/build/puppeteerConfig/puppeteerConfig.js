@@ -45,7 +45,11 @@ const scraping = (category, input) => __awaiter(void 0, void 0, void 0, function
     }
     if (input) {
         const url = `https://www.buscape.com.br/search?q=${input}`;
-        const browser = yield puppeteer_1.default.launch();
+        const browser = yield puppeteer_1.default.launch({
+            args: ['--no-sandbox', '--disable-setuid-sandbox'],
+            headless: true,
+            ignoreHTTPSErrors: true,
+        });
         const page = yield browser.newPage();
         yield page.goto(url);
         const obj = yield page.evaluate(() => {
