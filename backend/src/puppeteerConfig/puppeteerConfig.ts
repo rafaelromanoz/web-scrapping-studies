@@ -6,6 +6,7 @@ const scraping = async (category: string, input: string): Promise<any> => {
     const browser = await puppeteer.launch({
       args: ['--no-sandbox', '--disable-setuid-sandbox'],
       headless: true,
+      ignoreHTTPSErrors: true,
     });
     const page = await browser.newPage();
     await page.goto(url);
