@@ -16,7 +16,7 @@ Para o Backend foi utilizado de Node TypeScript, Express para realizar o confecc
 
 # Rodar o Projeto
 
-* git clone git@github.com:rafaelromanoz/teste-fullstack-lexartlabs.git
+* git clone git@github.com:rafaelromanoz/web-scrapping-studies.git
 
 ####Frontend
 * cd frontend
