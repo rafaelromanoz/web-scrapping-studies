@@ -1,6 +1,6 @@
-# Challenge Lexart FullStack Developer
+# Web Scrapping Estudies
 ---
-Esse projeto é um desafio feito para vaga de Developer Fullstack na LexartLabs, nesse projeto foi realizado o backend e o frontend, junto com deploy.
+Esse projeto foi realizado o backend e o frontend, junto com deploy.
 
 Nele é possível pesquisar produtos pela api do MercadoLivre e com Web Scraping no buscapé para pesquisar produtos e salvar os dados dos produtos pesquisados no banco não relacional MongoDB no servidor Atlas.
 
